@@ -25,4 +25,15 @@ public class StudentController {
     public List<Student> getAllStudents(){
         return studentService.getAllStudents();
     }
+
+    @DeleteMapping("/delete/{studentId}")
+    public String delete(@PathVariable int studentId){
+        studentService.deleteStudent(studentId);
+        return "Student with ID " + studentId + " is deleted";
+    }
+    @PutMapping("/update/{studentId}")
+    public String update(@PathVariable int studentId, @RequestBody Student updatedStudent) {
+        studentService.updateStudent(studentId, updatedStudent.getName(), updatedStudent.getAddress());
+        return "Student with ID " + studentId + " is updated";
+    }
 }

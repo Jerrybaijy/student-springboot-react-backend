@@ -1,9 +1,7 @@
 package com.jerrycodes.studentsystem.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.jerrycodes.studentsystem.repository.StudentRepository;
+import jakarta.persistence.*;
 
 @Entity
 public class Student {
@@ -17,6 +15,12 @@ public class Student {
 
     // 类的实例对象：Alt + Insert - Constructor - int.int
     public Student() {}
+
+    // 为删除学生而写
+    public Student(String name, String address) {
+        this.name = name;
+        this.address = address;
+    }
 
     // 类的方法：Alt + Insert - Getter and Setter - int.int, name:String, address:String
     public int getId() {
@@ -36,5 +40,20 @@ public class Student {
     }
     public void setAddress(String address) {
         this.address = address;
+    }
+    // 删除学生信息
+    public void delete(EntityManager entityManager) {
+        entityManager.getTransaction().begin();
+        entityManager.remove(this);
+        entityManager.getTransaction().commit();
+    }
+    // 修改学生信息
+    public void update(String newName, String newAddress) {
+        if (newName != null) {
+            this.name = newName;
+        }
+        if (newAddress != null) {
+            this.address = newAddress;
+        }
     }
 }
