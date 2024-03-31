@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: student-springboot-react-backend
+spec:
+  selector:
+    matchLabels:
+      app: student-springboot-react-backend
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: student-springboot-react-backend
+    spec:
+      containers:
+        - name: student-springboot-react-backend
+          image: jerrybaijy/student-springboot-react-backend:v1.0
+          ports:
+            - containerPort: 8080
+          env:
+            - name: PORT
+              value: "8080"
+          resources:
+            requests:
+              memory: "1Gi"
+              cpu: "500m"
+              ephemeral-storage: "1Gi"
+            limits:
+              memory: "1Gi"
+              cpu: "500m"
+              ephemeral-storage: "1Gi"

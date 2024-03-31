@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: student-springboot-react-backend
+spec:
+  selector:
+    app: student-springboot-react-backend
+  type: ClusterIP
+  ports:
+    - port: 80
+      targetPort: 8080
