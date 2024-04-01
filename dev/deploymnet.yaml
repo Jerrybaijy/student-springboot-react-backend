@@ -17,10 +17,3 @@ spec:
           image: jerrybaijy/student-springboot-react-backend:v1.0
           ports:
             - containerPort: 8080
-          volumeMounts:
-            - name: config-volume
-              mountPath: /config
-      volumes:
-        - name: config-volume
-          configMap:
-            name: backend-configmap
