@@ -7,5 +7,5 @@ spec:
     app: student-springboot-react-backend
   type: ClusterIP
   ports:
-    - port: 3000
+    - port: 8080
       targetPort: 8080
