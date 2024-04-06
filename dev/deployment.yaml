@@ -16,4 +16,4 @@ spec:
         - name: student-springboot-react-backend
           image: jerrybaijy/student-springboot-react-backend:v1.0
           ports:
-            - containerPort: 8080
+            - containerPort: 3000

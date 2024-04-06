@@ -13,11 +13,11 @@ spec:
   
   destination:
     server: https://kubernetes.default.svc
-    namespace: student-springboot-react-backend
+    namespace: mysql
 
   syncPolicy:
     syncOptions:
-      - CreateNamespace=true
+      - CreateNamespace=false
     automated:
       selfHeal: true
       prune: true
