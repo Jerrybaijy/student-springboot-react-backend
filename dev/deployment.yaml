@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: student-springboot-react-backend
+  name: backend
 spec:
   selector:
     matchLabels:
-      app: student-springboot-react-backend
+      app: backend
   replicas: 1
   template:
     metadata:
       labels:
-        app: student-springboot-react-backend
+        app: backend
     spec:
       containers:
-        - name: student-springboot-react-backend
+        - name: backend
           image: jerrybaijy/student-springboot-react-backend:v1.0
           ports:
             - containerPort: 8080
